@@ -1,0 +1,17 @@
+import turtle
+
+def drawCircle(t, x, y, radius):
+    """
+    Draw a circle with center (x, y) and radius using a Turtle object t.
+    """
+    circumference = 2.0 * 3.141592653589 * radius
+    distance = circumference / 120.0
+    t.penup()
+    t.goto(x + radius, y)
+    t.pendown()
+    for i in range(120):
+        t.forward(distance)
+        t.left(3)
+
+drawCircle(turtle.Turtle(), 25, 100, 50)
+
