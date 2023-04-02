@@ -1,0 +1,25 @@
+import turtle
+
+def drawFractalLine(t, distance, angle, level):
+    if level == 0:
+        t.forward(distance)
+    else:
+        drawFractalLine(t, distance/3, angle, level-1)
+        t.left(60*angle)
+        drawFractalLine(t, distance/3, angle, level-1)
+        t.right(120*angle)
+        drawFractalLine(t, distance/3, angle, level-1)
+        t.left(60*angle)
+        drawFractalLine(t, distance/3, angle, level-1)
+
+def drawKochSnowflake(t, distance, level):
+    for i in range(3):
+        drawFractalLine(t, distance, 1, level)
+        t.right(120)
+
+t = turtle.Turtle()
+t.speed(0) # set the turtle's speed to the maximum
+drawKochSnowflake(t, 200, 4)
+turtle.done()
+
+drawKochSnowflake(turtle.Turtle(), 200, 120, 0)
